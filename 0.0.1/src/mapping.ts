@@ -1,7 +1,7 @@
-import { TransferSingle } from "./generated/Ticket/Ticket";
+import { TransferSingle } from "../generated/Ticket/Ticket";
 import { Ticket, Transfer } from "../generated/schema";
 import { DataSourceTemplate } from "@graphprotocol/graph-ts";
-import { NewTicketDeployed } from "./generated/TicketsFactory/TicketsFactory";
+import { NewTicketDeployed } from "../generated/TicketsFactory/TicketsFactory";
 
 
 export function handleTransferSingle(event: TransferSingle): void {

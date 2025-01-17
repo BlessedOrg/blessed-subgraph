@@ -1,12 +1,12 @@
 specVersion: 0.0.7
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: TicketsFactory
     network: base-sepolia
     source:
-      address: "0x99ee7e67f2017fdd64e83488cc98ceb5baca5eb7"
+      address: "0xd9f072c668f587914100bcad9da68d552dd5d83e"
       abi: TicketsFactory
       startBlock: 20638990
     mapping:
@@ -18,14 +18,13 @@ dataSources:
         - Ticket
       abis:
         - name: TicketsFactory
-          file: ./abis/TicketsFactory.json
+          file: TicketsFactory/TicketsFactory.json
         - name: Ticket
-          file: ./abis/Ticket.json
+          file: TicketsFactory/Ticket.json
       eventHandlers:
         - event: NewTicketDeployed(address,address)
           handler: handleNewTicketDeployed
-      file: ./mapping.ts
-
+      file: TicketsFactory/TicketsFactory.wasm
 templates:
   - name: Ticket
     kind: ethereum/contract
@@ -41,8 +40,8 @@ templates:
         - Transfer
       abis:
         - name: Ticket
-          file: ./abis/Ticket.json
+          file: Ticket/Ticket.json
       eventHandlers:
         - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
           handler: handleTransferSingle
-      file: ./mapping.ts
+      file: templates/Ticket/Ticket.wasm

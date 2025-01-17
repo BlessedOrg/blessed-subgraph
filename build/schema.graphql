@@ -1,0 +1,18 @@
+type Ticket @entity {
+   id: ID!
+   address: Bytes!
+   createdAt: BigInt!
+   transfers: [Transfer!]! @derivedFrom(field: "ticket")
+}
+
+type Transfer @entity {
+   id: ID!
+   ticket: Ticket!
+   operator: Bytes!
+   from: Bytes!
+   to: Bytes!
+   tokenId: BigInt!
+   value: BigInt!
+   timestamp: BigInt!
+   blockNumber: BigInt!
+}
