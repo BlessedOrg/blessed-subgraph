@@ -1,0 +1,29 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: TicketsFactory
+    network: base-sepolia
+    source:
+      address: "0x99ee7e67f2017fdd64e83488cc98ceb5baca5eb7"
+      abi: TicketsFactory
+      startBlock: 20668268
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - NewTicketDeployed
+        - OwnershipTransferred
+      abis:
+        - name: TicketsFactory
+          file: ./abis/TicketsFactory.json
+      eventHandlers:
+        - event: NewTicketDeployed(address,address)
+          handler: handleNewTicketDeployed
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+      file: ./src/tickets-factory.ts

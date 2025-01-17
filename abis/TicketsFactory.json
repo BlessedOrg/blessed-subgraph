@@ -1,0 +1,141 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "owner", "type": "address" }
+    ],
+    "name": "OwnableInvalidOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "OwnableUnauthorizedAccount",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "ticketAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "ownerSmartWallet",
+        "type": "address"
+      }
+    ],
+    "name": "NewTicketDeployed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "_owner", "type": "address" },
+          {
+            "internalType": "address",
+            "name": "_ownerSmartWallet",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "_eventAddress",
+            "type": "address"
+          },
+          { "internalType": "string", "name": "_baseURI", "type": "string" },
+          { "internalType": "string", "name": "_name", "type": "string" },
+          { "internalType": "string", "name": "_symbol", "type": "string" },
+          {
+            "internalType": "address",
+            "name": "_erc20Address",
+            "type": "address"
+          },
+          { "internalType": "uint256", "name": "_price", "type": "uint256" },
+          {
+            "internalType": "uint256",
+            "name": "_initialSupply",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_maxSupply",
+            "type": "uint256"
+          },
+          { "internalType": "bool", "name": "_transferable", "type": "bool" },
+          { "internalType": "bool", "name": "_whitelistOnly", "type": "bool" },
+          {
+            "components": [
+              {
+                "internalType": "address payable",
+                "name": "wallet",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "feePercentage",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct Library.Stakeholder[]",
+            "name": "_stakeholders",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct Library.TicketConstructor",
+        "name": "config",
+        "type": "tuple"
+      }
+    ],
+    "name": "deployTicket",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "newOwner", "type": "address" }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

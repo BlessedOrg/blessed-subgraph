@@ -1,0 +1,8 @@
+{
+  "base-sepolia": {
+    "TicketsFactory": {
+      "address": "0x99ee7e67f2017fdd64e83488cc98ceb5baca5eb7",
+      "startBlock": 20668268
+    }
+  }
+}
