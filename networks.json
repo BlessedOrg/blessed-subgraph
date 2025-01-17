@@ -3,6 +3,9 @@
     "TicketsFactory": {
       "address": "0x99ee7e67f2017fdd64e83488cc98ceb5baca5eb7",
       "startBlock": 20668268
+    },
+    "Ticket": {
+      "address": "0x57e9Fc13C2Ee6615FE679e8B1d2Dac204D6ca6b7"
     }
   }
 }
