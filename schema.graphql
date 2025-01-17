@@ -1,6 +1,7 @@
 type Ticket @entity {
    id: ID!
    address: Bytes!
+   ownerSmartWallet: Bytes!
    createdAt: BigInt!
    transfers: [Transfer!]! @derivedFrom(field: "ticket")
 }

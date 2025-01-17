@@ -1,5 +1,8 @@
 import { TransferSingle } from "./generated/Ticket/Ticket";
-import { Transfer } from "../generated/schema";
+import { Ticket, Transfer } from "../generated/schema";
+import { DataSourceTemplate } from "@graphprotocol/graph-ts";
+import { NewTicketDeployed } from "./generated/TicketsFactory/TicketsFactory";
+
 
 export function handleTransferSingle(event: TransferSingle): void {
   let id = event.transaction.hash.toHexString() + '-' + event.logIndex.toString()
@@ -16,4 +19,14 @@ export function handleTransferSingle(event: TransferSingle): void {
   transfer.timestamp = event.block.timestamp
   transfer.blockNumber = event.block.number
   transfer.save()
+}
+
+export function handleNewTicketDeployed(event: NewTicketDeployed): void {
+  let ticket = new Ticket(event.params.ticketAddress.toHexString())
+  ticket.address = event.params.ticketAddress
+  ticket.ownerSmartWallet = event.params.ownerSmartWallet
+  ticket.createdAt = event.block.timestamp
+  ticket.save()
+
+  DataSourceTemplate.create('Ticket', [event.params.ticketAddress.toHexString()])
 }

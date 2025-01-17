@@ -24,7 +24,7 @@ dataSources:
       eventHandlers:
         - event: NewTicketDeployed(address,address)
           handler: handleNewTicketDeployed
-      file: ./factory.ts
+      file: ./mapping.ts
 
 templates:
   - name: Ticket
