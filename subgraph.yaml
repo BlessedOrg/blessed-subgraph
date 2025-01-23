@@ -6,7 +6,7 @@ dataSources:
     name: TicketsFactory
     network: base-sepolia
     source:
-      address: "0xd9f072c668f587914100bcad9da68d552dd5d83e"
+      address: "0xa6e146efc4Bea3079F92BeABD659B922FdBFB4ba"
       abi: TicketsFactory
       startBlock: 20638990
     mapping:
@@ -24,7 +24,7 @@ dataSources:
       eventHandlers:
         - event: NewTicketDeployed(address,address)
           handler: handleNewTicketDeployed
-      file: ./factory.ts
+      file: ./src/mapping.ts
 
 templates:
   - name: Ticket
@@ -45,4 +45,6 @@ templates:
       eventHandlers:
         - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
           handler: handleTransferSingle
-      file: ./mapping.ts
+        - event: TicketPurchased(uint256,uint256)
+          handler: handleTicketPurchased
+      file: ./src/mapping.ts
